@@ -1,0 +1,41 @@
+# Node.js (client)
+client/node_modules
+client/dist
+client/.vite
+client/.env
+
+# Laravel (server)
+server/vendor
+server/node_modules
+server/storage/logs
+server/storage/framework
+server/storage/*.key
+server/.env
+server/.phpunit.result.cache
+
+# Logs and cache
+*.log
+*.pid
+
+# Docker
+docker-compose.yml
+docker-compose.*.yml
+.dockerignore
+Dockerfile
+
+# Git
+.git
+.gitignore
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Swagger generated docs
+server/public/docs
