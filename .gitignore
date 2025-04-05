@@ -1,30 +1,54 @@
-# Laravel
+# Laravel & PHP
+
 /server/vendor/
-/server/storage/**/*
-!/server/storage/
-!/server/storage/**/
-!/server/storage/**/.gitignore
 /server/.env
-/server/storage/*.key
-.phpunit.result.cache
+/server/.phpunit.result.cache
 
-/server/storage/logs/
-/server/storage/framework/cache/
-/server/storage/framework/sessions/
-server/storage/framework/views/
-
-# Node.js
-/client/node_modules/
-npm-debug.log
-yarn-error.log
-
+# IDE / System files
 .idea/
 .vscode/
 .DS_Store
 *.sublime-workspace
 *.sublime-project
+npm-debug.log
+yarn-error.log
+
+# Composer / Laravel cache & logs
+/server/storage/logs/
+!/server/storage/logs/.gitkeep
+
+/server/storage/framework/cache/
+!/server/storage/framework/cache/.gitkeep
+
+/server/storage/framework/sessions/
+!/server/storage/framework/sessions/.gitkeep
+
+/server/storage/framework/views/
+!/server/storage/framework/views/.gitkeep
+
+/server/storage/framework/testing/
+!/server/storage/framework/testing/.gitkeep
+
+/server/storage/app/
+!/server/storage/app/.gitkeep
+
+/server/storage/api-docs/
+!/server/storage/api-docs/.gitkeep
+
+/server/storage/app/public/
+!/server/storage/app/public/.gitkeep
+
+/server/storage/**/*
+!/server/storage/
+!/server/storage/**/
+!/server/storage/**/.gitkeep
+
+# Node & Frontend
+
+/client/node_modules/
 
 # Docker
+
 mysql-data/
 *.pid
 *.log
