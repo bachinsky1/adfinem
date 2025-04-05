@@ -55,6 +55,7 @@ echo Building frontend...
 echo ========================================
 call npm run build
 cd ..
+xcopy /E /I /Y client\dist server\public\dist
 @REM cls
 
 echo ========================================
