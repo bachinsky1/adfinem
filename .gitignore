@@ -1,0 +1,31 @@
+# Laravel
+/server/vendor
+client/node_modules
+/server/storage
+/server/storage/*.key
+/server/.env
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+.idea/
+.vscode/
+.DS_Store
+*.sublime-workspace
+*.sublime-project
+
+# Composer & Laravel logs/cache
+/vendor
+/storage/logs
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/views
+
+# Docker
+mysql-data/
+*.pid
+*.log
+
+# Swagger generated docs (если есть)
+public/docs
