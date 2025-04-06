@@ -8,6 +8,18 @@ use Illuminate\Http\Request;
 /**
  * @OA\Tag(name="Tasks", description="Task operations")
  */
+/**
+ * @OA\Schema(
+ *     schema="TaskStatus",
+ *     type="string",
+ *     enum={"pending", "in progress", "completed"},
+ *     description="Status of the task: 
+ *     - pending: waiting to be started
+ *     - in progress: currently being worked on
+ *     - completed: finished"
+ * )
+ */
+
 class TaskController extends Controller
 {
     protected $taskService;
@@ -48,7 +60,8 @@ class TaskController extends Controller
      *         @OA\JsonContent(
      *             required={"title"},
      *             @OA\Property(property="title", type="string", example="New task"),
-     *             @OA\Property(property="description", type="string", example="Task description")
+     *             @OA\Property(property="description", type="string", example="Task description"),
+     *             @OA\Property(property="status", type="string", example="pending")
      *         )
      *     ),
      *     @OA\Response(response=201, description="Task created"),
@@ -59,7 +72,8 @@ class TaskController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'nullable|string'
+            'description' => 'nullable|string',
+            'status' => 'nullable|in:pending,in progress,completed'
         ]);
 
         $task = $this->taskService->create($validated);
@@ -98,7 +112,8 @@ class TaskController extends Controller
      *         required=true,
      *         @OA\JsonContent(
      *             @OA\Property(property="title", type="string", example="Updated task"),
-     *             @OA\Property(property="description", type="string", example="Updated description")
+     *             @OA\Property(property="description", type="string", example="Updated description"),
+     *             @OA\Property(property="status", type="string", example="pending")
      *         )
      *     ),
      *     @OA\Response(response=200, description="Task updated"),
@@ -110,7 +125,8 @@ class TaskController extends Controller
     {
         $validated = $request->validate([
             'title' => 'sometimes|required|string|max:255',
-            'description' => 'nullable|string'
+            'description' => 'nullable|string',
+            'status' => 'nullable|in:pending,in progress,completed'
         ]);
 
         return response()->json($this->taskService->update($id, $validated));
