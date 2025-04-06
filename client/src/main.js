@@ -232,23 +232,23 @@ const renderTasksContent = tasks => {
 
     document.querySelectorAll('.task-item').forEach(item => {
         item.onclick = e => {
-        if (e.target.classList.contains('deleteBtn')) return
-        const task = tasks.find(t => t.id == item.dataset.id)
-        renderTaskDetail(task)
+            if (e.target.classList.contains('deleteBtn')) return
+            const task = tasks.find(t => t.id == item.dataset.id)
+            renderTaskDetail(task)
         }
     })
 
     document.querySelectorAll('.deleteBtn').forEach(btn => {
         btn.onclick = async e => {
-        e.stopPropagation()
-        const confirmDelete = confirm(
-            'Are you sure you want to delete this task?'
-        )
-        if (!confirmDelete) return
+            e.stopPropagation()
+            const confirmDelete = confirm(
+                'Are you sure you want to delete this task?'
+            )
+            if (!confirmDelete) return
 
-        showLoading()
-        await api.deleteTask(btn.dataset.id)
-        renderDashboard('tasks')
+            showLoading()
+            await api.deleteTask(btn.dataset.id)
+            renderDashboard('tasks')
         }
     })
 }
@@ -304,8 +304,8 @@ const renderEditTaskContent = tasks => {
     const fillFormFields = () => {
         const selectedTask = tasks.find(t => t.id == taskSelect.value)
         if (selectedTask) {
-        titleInput.value = selectedTask.title
-        descInput.value = selectedTask.description || ''
+            titleInput.value = selectedTask.title
+            descInput.value = selectedTask.description || ''
         }
     }
 
@@ -316,8 +316,8 @@ const renderEditTaskContent = tasks => {
         e.preventDefault()
         showLoading()
         await api.updateTask(taskSelect.value, {
-        title: titleInput.value,
-        description: descInput.value
+            title: titleInput.value,
+            description: descInput.value
         })
         alert('Task updated!')
         renderDashboard('tasks')

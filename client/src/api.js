@@ -16,9 +16,9 @@ const request = async (method, endpoint, data) => {
     const options = {
         method,
         headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        ...(token && { Authorization: `Bearer ${token}` })
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            ...(token && { Authorization: `Bearer ${token}` })
         }
     }
 
@@ -30,8 +30,8 @@ const request = async (method, endpoint, data) => {
         const response = await fetch(`${API_URL}${endpoint}`, options)
 
         if (response.status === 401) {
-        removeToken()
-        return { error: 'Unauthorized' }
+            removeToken()
+            return { error: 'Unauthorized' }
         }
 
         return await response.json()
