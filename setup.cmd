@@ -1,6 +1,6 @@
 @echo off
 setlocal
-@REM cls
+cls
 
 @REM echo ========================================
 @REM echo Deleting mysql-data...
@@ -17,7 +17,7 @@ docker compose up -d --build
 echo ========================================
 echo Waiting for containers to be ready...
 timeout /t 10 >nul
-@REM cls
+cls
 
 echo ========================================
 echo Installing Laravel dependencies...
@@ -41,7 +41,7 @@ echo ========================================
 echo Generating Swagger docs...
 echo ========================================
 docker compose exec app php artisan l5-swagger:generate
-@REM cls
+cls
 
 echo ========================================
 echo Installing frontend dependencies...
@@ -56,7 +56,7 @@ echo ========================================
 call npm run build
 cd ..
 xcopy /E /I /Y client\dist server\public\dist
-@REM cls
+cls
 
 echo ========================================
 echo All done!
